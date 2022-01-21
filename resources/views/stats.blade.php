@@ -11,7 +11,7 @@
     <p>Total number of feladatok: {{ $feladatcount }}</p>
     <p>Total number of ertekeletlen feladatok: {{ $feladatertekelve }}</p>
     <!--<p>
-       <a href="{{ route('statues.index') }}">Go to statue listing</a>
+       <a href="{{ route('feladatok.index') }}">Go to statue listing</a>
     </p>-->
 </body>
 </html>
