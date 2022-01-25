@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FeladatRequest;
 use App\Models\Feladat;
 use Illuminate\Http\Request;
 
@@ -36,7 +37,7 @@ class FeladatController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FeladatRequest $request)
     {
         $adatok = $request->only(['nev','feladat_url','szoveges_ertekeles', 'pontszam']);
         $feladat = new Feladat();
@@ -75,7 +76,7 @@ class FeladatController extends Controller
      * @param  \App\Models\Feladat  $feladat
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(FeladatRequest $request, $id)
     {
         $feladat= Feladat::find($id);
         $adatok = $request->only(['nev','feladat_url','szoveges_ertekeles', 'pontszam']);
