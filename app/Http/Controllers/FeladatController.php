@@ -14,7 +14,10 @@ class FeladatController extends Controller
      */
     public function index()
     {
-        //
+        $feladatok = Feladat::orderBy('nev')->get();
+        return view('feladatok.index', [
+            'feladatok' => $feladatok
+    ]);
     }
 
     /**
@@ -57,7 +60,7 @@ class FeladatController extends Controller
      */
     public function edit(Feladat $feladat)
     {
-        //
+        return view('feladatok.edit', ['feladat' => $feladat]);
     }
 
     /**
@@ -69,7 +72,10 @@ class FeladatController extends Controller
      */
     public function update(Request $request, Feladat $feladat)
     {
-        //
+        $adatok = $request->only(['szoveges_ertekeles', 'pontszam']);
+        $feladat->fill($adatok);
+        $feladat->save();
+        return redirect()->route('feladatok.index');
     }
 
     /**

@@ -7,11 +7,9 @@
     <title>Museum bragging page</title>
 </head>
 <body>
-    <h1>Welcome to the Museum home page</h1>
-    <p>Total number of feladatok: {{ $feladatcount }}</p>
-    <p>Total number of ertekeletlen feladatok: {{ $feladatertekelve }}</p>
-    <!--<p>
-       <a href="{{ route('feladatok.index') }}">Go to statue listing</a>
-    </p>-->
+    <h1>Üdvözlünk a házifeladat kezelő alkalmazásban!</h1>
+    <p>Beadott feladatok száma: {{ $feladatcount }}</p>
+    <p>Nem értékelt feladatok száma: {{ $feladatertekelve }}</p>
+       <a href="{{ route('feladatok.index') }}">Feladatok listája</a>
 </body>
 </html>
