@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Feladat extends Model
 {
     use HasFactory;
-    protected $fillable = ['szoveges_ertekeles', 'pontszam'];
+    protected $fillable = ['nev','feladat_url','szoveges_ertekeles', 'pontszam'];
 
     protected $visible = [
         'id',

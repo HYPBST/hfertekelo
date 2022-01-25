@@ -58,8 +58,9 @@ class FeladatController extends Controller
      * @param  \App\Models\Feladat  $feladat
      * @return \Illuminate\Http\Response
      */
-    public function edit(Feladat $feladat)
+    public function edit($id)
     {
+        $feladat = Feladat::find($id);
         return view('feladatok.edit', ['feladat' => $feladat]);
     }
 
@@ -70,9 +71,10 @@ class FeladatController extends Controller
      * @param  \App\Models\Feladat  $feladat
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Feladat $feladat)
+    public function update(Request $request, $id)
     {
-        $adatok = $request->only(['szoveges_ertekeles', 'pontszam']);
+        $feladat= Feladat::find($id);
+        $adatok = $request->only(['nev','feladat_url','szoveges_ertekeles', 'pontszam']);
         $feladat->fill($adatok);
         $feladat->save();
         return redirect()->route('feladatok.index');

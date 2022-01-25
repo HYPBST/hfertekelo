@@ -12,12 +12,18 @@
         @method('PATCH')
         @csrf
         <div>
+            <input type="hidden" name="nev" value="{{ $feladat->nev }}">
+        </div>
+        <div>
+            <input type="hidden" name="feladat_url" value="{{ $feladat->feladat_url }}">
+        </div>
+        <div>
             Szöveges értékelés:<br>
-            <input type="text" name="person" value="{{ $feladat->szoveges_Ertekeles }}">
+            <input type="text" required name="szoveges_ertekeles" value="{{ $feladat->szoveges_ertekeles }}" >
         </div>
         <div>
             Pontszám:<br>
-            <input type="number" name="height" value="{{ $statue->pontszam }}">
+            <input type="number" name="pontszam" value="{{ $feladat->pontszam }}" min=1 max=100>
         </div>
         <div>
             <input type="submit" value="Értékelés">

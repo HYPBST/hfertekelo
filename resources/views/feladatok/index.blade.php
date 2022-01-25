@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-
+<p><a href="{{ route('home') }}">Vissza a főoldalra</a></p>
     <table>
         <tr>
             <th>Név</th>
@@ -20,12 +20,12 @@
         <tr>
             <td>{{ $feladat->nev }}</td>
             <td>{{ $feladat->feladat_url }}</td>
-            <td>{{ $feladat->feladatertekelve }}</td>
+            <td>{{ $feladat->szoveges_ertekeles }}</td>
             <td>{{ $feladat->pontszam }}</td>
             <td>
-                <form method="POST" action="{{ route('feladatok.edit', $feladat->id) }}">
+                <form method="GET" action="{{ route('feladatok.edit', $feladat->id) }}">
                     @csrf
-                    @method('UPDATE')
+                    @method('GET')
                     <button type="submit">Értékelés</button>
                 </form>
             </td>
