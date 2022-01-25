@@ -23,7 +23,7 @@
         </div>
         <div>
             Pontszám:<br>
-            <input type="number" name="pontszam" value="{{ $feladat->pontszam }}" min=1 max=100>
+            <input type="number" name="pontszam" value="{{ $feladat->pontszam }}" min=0 max=100>
         </div>
         <div>
             <input type="submit" value="Értékelés">

@@ -21,28 +21,28 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div>
             Név:<br>
-            <input type="text" name="nev" value="{{ old('nev') }}">
+            <input type="text" name="nev" value="{{ old('nev') }}" required>
             @error('nev')
                 <p>{{ $message }}</p>
             @enderror
         </div>
         <div>
             Feladat url:<br>
-            <input type="text" name="feladat_url" value="{{ old('feladat_url') }}">
+            <input type="text" name="feladat_url" value="{{ old('feladat_url') }}" required>
             @error('feladat_url')
                 <p>{{ $message }}</p>
             @enderror
         </div>
         <div>
             Szöveges értékelés:<br>
-            <input type="text" name="szoveges_ertekeles" value="{{ old('szoveges_ertekeles') }}">
+            <input type="text" name="szoveges_ertekeles" value="{{ old('szoveges_ertekeles') }}" required>
             @error('szoveges_ertekeles')
                 <p>{{ $message }}</p>
             @enderror
         </div>
         <div>
             Pontszám:<br>
-            <input type="text" name="pontszam" value="{{ old('pontszam') }}">
+            <input type="number" name="pontszam" value="{{ old('pontszam') }}" min=0 max=100 required>
             @error('pontszam')
                 <p>{{ $message }}</p>
             @enderror
