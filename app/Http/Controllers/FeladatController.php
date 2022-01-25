@@ -27,7 +27,7 @@ class FeladatController extends Controller
      */
     public function create()
     {
-        //
+        return view('feladatok.create');
     }
 
     /**
@@ -38,7 +38,11 @@ class FeladatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $adatok = $request->only(['nev','feladat_url','szoveges_ertekeles', 'pontszam']);
+        $feladat = new Feladat();
+        $feladat->fill($adatok);
+        $feladat->save();
+        return redirect()->route('feladatok.index');
     }
 
     /**
@@ -86,8 +90,10 @@ class FeladatController extends Controller
      * @param  \App\Models\Feladat  $feladat
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Feladat $feladat)
+    public function destroy( $id)
     {
-        //
+        $feladat = Feladat::find($id);
+        $feladat->delete();
+        return redirect()->route('feladatok.index');
     }
 }
